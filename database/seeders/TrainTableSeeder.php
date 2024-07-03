@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Train;
+use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -11,18 +12,22 @@ class TrainTableSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
-        $train = new Train();
-        $train->Azienda = "TreniItalia";
-        $train->Stazione_di_partenza = "Nettuno";
-        $train->Stazione_di_arrivo = "Roma Termni";
-        $train->Orario_di_partenza = "12:10:22";
-        $train->Orario_di_arrivo = "13:10:22";
-        $train->Codice_Treno = "relkgcnmbkldfgqkfl10";
-        $train->Numero_Carrozze = 4;
-        $train->In_orario = false;
-        $train->Cancellato = true;
-        $train->save();
+        for ($i=0; $i < 10; $i++) { 
+
+            $train = new Train();
+            $train->Azienda = $faker->company();
+            $train->Stazione_di_partenza = $faker->city();
+            $train->Stazione_di_arrivo = $faker->city();
+            $train->Orario_di_partenza = $faker->time();
+            $train->Orario_di_arrivo = $faker->time();
+            $train->Codice_Treno = $faker->md5();
+            $train->Numero_Carrozze = $faker->randomDigit();
+            $train->In_orario = $faker->boolean();
+            $train->Cancellato = $faker->boolean();
+            $train->save();
+            
+        }
     }
 }
