@@ -17,11 +17,12 @@ class TrainTableSeeder extends Seeder
         $train->Azienda = "TreniItalia";
         $train->Stazione_di_partenza = "Nettuno";
         $train->Stazione_di_arrivo = "Roma Termni";
-        $train->Orario_di_partenza = time(12:10:22);
-        $train->Orario_di_arrivo = "Treni Italia";
-        $train->Azienda = "Treni Italia";
-        $train->Azienda = "Treni Italia";
-        $train->Azienda = "Treni Italia";
-        $train->Azienda = "Treni Italia";
+        $train->Orario_di_partenza = "12:10:22";
+        $train->Orario_di_arrivo = "13:10:22";
+        $train->Codice_Treno = "relkgcnmbkldfgqkfl10";
+        $train->Numero_Carrozze = 4;
+        $train->In_orario = false;
+        $train->Cancellato = true;
+        $train->save();
     }
 }

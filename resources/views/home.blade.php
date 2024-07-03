@@ -18,6 +18,9 @@
                   @else 
                     <p class="card-text bg-danger">in ritardo</p>
                   @endif
+                  @if ( $train->Cancellato == true )
+                  <p class="card-text bg-danger">cancellato</p>
+                  @endif
                 </div>
               </div>
             @endforeach 
